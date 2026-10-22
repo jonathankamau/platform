@@ -7,26 +7,13 @@ default:
     suites:
         default:
             paths:
-                - %paths.base%/tests/integration
+                - '%paths.base%/tests/Integration'
             contexts:
-                - Tests\Integration\Bootstrap\KohanaContext
-                - Tests\Integration\Bootstrap\FeatureContext
-                - Tests\Integration\Bootstrap\RestContext:
+                - Ushahidi\Tests\Integration\Bootstrap\FeatureContext
+                - Ushahidi\Tests\Integration\Bootstrap\RestContext:
                     baseUrl: http://localhost:8000
                     # proxyUrl: localhost:8888
-                - Tests\Integration\Bootstrap\PHPUnitFixtureContext
-                - Tests\Integration\Bootstrap\MinkExtendedContext
-            extensions:
-                Behat\MinkExtension:
-                    base_url:  http://localhost:8000
-                    sessions:
-                        default:
-                            goutte: ~
-                    goutte:
-                        guzzle_parameters:
-                            curl.options:
-                                3 : 8000 #CURLOPT_PORT=3
-                                # 10004: localhost:8888 #CURLOPT_PROXY=10004
+                - Ushahidi\Tests\Integration\Bootstrap\PHPUnitFixtureContext
 ci:
     suites:
         default:
